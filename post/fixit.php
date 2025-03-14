@@ -10,7 +10,7 @@ if (!empty($_POST)) {
         curl_setopt(
             $ch,
             CURLOPT_USERAGENT,
-            "www.fab4it.com",
+            $app_name,
         );
         $url = 'https://api.discogs.com/users/' .
             $user .
