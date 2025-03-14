@@ -2,6 +2,7 @@
 $user = '<PlaceUsernameHere>';
 $token = '<PlaceYourCurrentAppTokenHere>';
 $field_id = <PlaceTheFieldIDValueHere>; // The "Date washed" field
+$app_name = '<PlaceYourAppNameHere>';
 
 // The API call will not return all the items at once but in paginated pieces.
 // Here we set the call to pull the maximum number of pages allowed, to cut
