@@ -1,0 +1,62 @@
+<!-- Date modal -->
+<div id="date_modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Please choose a date</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="date" id="wash_date" class="form-control" placeholder="Click here"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary submitDate">Submit Date</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Confirmation modal -->
+<div id="confirmation_modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto">
+                    <?php echo $error_symbol; ?>
+                    &nbsp;&nbsp;Are you sure?&nbsp;&nbsp;
+                    <?php echo $error_symbol; ?>
+                </h5>
+            </div>
+            <div id="modal_confirm_text" class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary confirmYes">
+                    Yes - I'm sure!
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    No!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Error modal -->
+<div id="error_modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto">
+                 <?php echo $error_symbol; ?>
+                 &nbsp;&nbsp;There was a problem!&nbsp;&nbsp;
+                 <?php echo $error_symbol; ?>
+                </h5>
+            </div>
+            <div id="modal_error_text" class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

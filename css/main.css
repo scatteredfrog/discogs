@@ -1,0 +1,49 @@
+html {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+body {
+    background-color: #000;
+    color: #aeaeae;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fixDates:hover, .updateWash:hover{
+    color: yellow;
+}
+
+.stickyHeader {
+    position: sticky;
+    top: 0;
+}
+
+.whitish {
+    background-color: #aeaeae;
+}
+
+.blackground {
+    background-color: #000;
+}
+
+.fixDates {
+    color: limegreen;
+}
+
+.option {
+    border-radius: 45px;
+    border-color: #aeaeae;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.updateWash {
+    color: goldenrod;
+}
+
+#discogs_logo {
+    width: 450px;
+    border-radius: 45px;
+}
