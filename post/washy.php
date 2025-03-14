@@ -5,7 +5,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt(
     $ch,
     CURLOPT_USERAGENT,
-    "www.fab4it.com",
+    $app_name,
 );
 
 // Was a POST request made?
