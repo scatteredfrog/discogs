@@ -31,7 +31,7 @@ you to filter by custom fields. The site itself is slow, too, so scrolling
 through my collection to find what records still need washing is a royal PITA.
 
 ## What Does It Do?
-Demo video here: (https://www.youtube.com/watch?v=tyOannUb8HY) 
+Demo video here: (https://www.youtube.com/watch?v=tyOannUb8HY)
 
 It occurred to me that maybe Discogs has an API - and sure enough, they do! As
 of right now, this repo consists of code I whipped up to help me manage the
@@ -62,7 +62,7 @@ handling involved dumping the API's response into an array. Discogs doesn't
 exactly have the most user-friendly API. You can't just tell it, "Give me
 only titles by Led Zeppelin" or "Only give me the records that have a certain
 field filled out" - you can only retrieve your collection by folder. Which
-in many cases relies on you to be very diligent in sorting your collectin into
+in many cases relies on you to be very diligent in sorting your collection into
 folders. There's also the option to retrieve folder_0, which is your ENTIRE
 collection. The results are quite a mess to have to wade through -- you have
 arrays within arrays within arrays, sometimes the arrays aren't as deep as
@@ -82,27 +82,36 @@ Just copy the files somewhere where you can run PHP code -- your own computer,
 a shared host, etc. You just need to have PHP installed. I used PHP 8.4 when
 coding this, but I'm pretty sure this will work with PHP 7 as well.
 
-## Usage
-Plug the following information into the `config.php` file:
-- `$user`: your Discogs.com username
-- `$field_id`: the value of the custom field you wish to use (in my case, it's
-  4 -- you may have to make a call to the
-`/users/{username}/collection/folders/{folder_id}` end point to
-verify)
-- `$token`: your current app's token as provided by Discogs
--  `$items_per_page`: maxes out at 100. The biggger the number, the fewer the
--  API calls.
+You will need to create a file called `config.php` in the root directory, and
+it should have the following contents:
 
+```
+<?php
+define( 'APP_ROOT', dirname( __FILE__ ) . '/' );
+
+$user = 'YourUserName';
+$token = 'YourCurrentAppToken'; // as assigned by Discogs.com
+$field_id = 4; // or whatever the ID of your equivalent "Date washed" field is
+
+// The API call will not return all the items at once but in paginated pieces.
+// Here we set the call to pull the maximum number of pages allowed, to cut
+// down on the number of cURL calls.
+$items_per_page = 100;
+
+$app_name = 'your_app_name';
+```
+
+## Usage
 Open the `index.php` file in your web browser of choice.
 
 ### **Fix dates**
-Gives you a list of titles whose wash dates are not formatted 
-YYYY-MM-DD. Click the "Reformat" button to reformat the date. The page will 
-reload, and because the title no longer has an incorrectly formatted date, you 
+Gives you a list of titles whose wash dates are not formatted
+YYYY-MM-DD. Click the "Reformat" button to reformat the date. The page will
+reload, and because the title no longer has an incorrectly formatted date, you
 won't see it on the list.
 
 ### **Update wash dates**
-Gives you a list of titles that do not have their wash 
+Gives you a list of titles that do not have their wash
 date fields populated. Each listed title gives you three options:
 - **NO** - as in, "No, this item should not be washed!" This is intended for
 items that are generally not considered washable. If you click "NO" and the
