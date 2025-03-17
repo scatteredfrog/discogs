@@ -71,9 +71,9 @@ require_once APP_ROOT . 'partials/retrieve_collection.php';
             <th scope="col">Artist</th>
             <th scope="col">Title</th>
             <th scope="col">Format</th>
-            <th scope="col">Don't Wash</th>
-            <th scope="col">Enter Date</th>
-            <th scope="col">Today</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"><?php echo $home; ?></th>
         </tr>
     </thead>
     <tbody>

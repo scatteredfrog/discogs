@@ -8,7 +8,7 @@ curl_setopt($ch,
     CURLOPT_HTTPHEADER,
     [
         'Content-Type: application/json',
-        'User-Agent: ScatteredFrog/1.0 +https://www.fab4it.com',
+        'User-Agent: ' . $app_name,
         'Authorization: Discogs token=' . $token,
     ]
 );

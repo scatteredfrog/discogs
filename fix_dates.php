@@ -70,7 +70,7 @@ require_once APP_ROOT . 'partials/retrieve_collection.php';
             <th scope="col">Artist</th>
             <th scope="col">Title</th>
             <th scope="col">Date Washed</th>
-            <th scope="col"></th>
+            <th scope="col"><?php echo $home; ?></th>
         </tr>
     </thead>
     <tbody>
