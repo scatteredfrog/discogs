@@ -31,6 +31,8 @@ you to filter by custom fields. The site itself is slow, too, so scrolling
 through my collection to find what records still need washing is a royal PITA.
 
 ## What Does It Do?
+[!Demo video here!(https://www.youtube.com/watch?v=tyOannUb8HY)]
+
 It occurred to me that maybe Discogs has an API - and sure enough, they do! As
 of right now, this repo consists of code I whipped up to help me manage the
 washing history of my records. Right now, there are two tasks that I coded:
