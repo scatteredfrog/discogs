@@ -2,6 +2,7 @@
 function checkConflict(action_id)
 {
     let pieces = action_id.split('_');
+    console.dir(pieces);
     let format = $('#format_' + pieces[1]).val();
 
     // Is this vinyl and we're NOT washing it?
@@ -18,6 +19,19 @@ function checkConflict(action_id)
         );
         $('.confirmYes').attr('id', action_id);
         $('#confirmation_modal').modal('show');
+    } else {
+        // No conflict!
+        switch(pieces[0]) {
+            // We're manually entering the date.
+            case 'ed':
+                $('.submitDate').attr('id', action_id);
+                $('#date_modal').modal('show');
+                break;
+            // We're auto-adding either today or "n/a".
+            case  'na':
+            case 'today':
+                post_data({'action_instance' : action_id});
+        }
     }
 }
 

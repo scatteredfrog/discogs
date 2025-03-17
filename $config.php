@@ -1,7 +1,8 @@
 <?php
-$user = '<PlaceUsernameHere>';
-$token = '<PlaceYourCurrentAppTokenHere>';
-$field_id = <PlaceTheFieldIDValueHere>; // The "Date washed" field
+$user = 'ScatteredFrog';
+$token = 'tUqCYmVgohTxQQWOAbCnMRLOtBkxDynlOSgmMmND';
+$app_name = 'www.fab4it.com';
+$field_id = 4; // The "Date washed" field
 
 // The API call will not return all the items at once but in paginated pieces.
 // Here we set the call to pull the maximum number of pages allowed, to cut
