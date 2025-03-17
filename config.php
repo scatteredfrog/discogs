@@ -1,3 +1,6 @@
+<?php
+define( 'APP_ROOT', dirname( __FILE__ ) . '/' );
+
 $user = 'YourUserName';
 $token = 'YourCurrentAppToken';
 $field_id = 4; // or whatever the ID of your equivalent "Date washed" field is
