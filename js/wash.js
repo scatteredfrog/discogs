@@ -2,7 +2,6 @@
 function checkConflict(action_id)
 {
     let pieces = action_id.split('_');
-    console.dir(pieces);
     let format = $('#format_' + pieces[1]).val();
 
     // Is this vinyl and we're NOT washing it?
