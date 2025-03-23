@@ -11,7 +11,7 @@ a {
     text-decoration: none;
 }
 
-.fixDates:hover, .updateWash:hover{
+.fixDates:hover, .updateWash:hover, .transferOwnership:hover {
     color: yellow;
 }
 
@@ -41,6 +41,10 @@ a {
 
 .updateWash {
     color: goldenrod;
+}
+
+.transferOwnership {
+    color: lightblue;
 }
 
 #discogs_logo {
