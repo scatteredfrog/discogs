@@ -2,6 +2,10 @@ html {
     font-family: Arial, Helvetica, sans-serif
 }
 
+button {
+    width: 5em!important;
+}
+
 body {
     background-color: #000;
     color: #aeaeae;
@@ -45,6 +49,10 @@ a {
 
 .transferOwnership {
     color: lightblue;
+}
+
+.height42 {
+    height: 42px;
 }
 
 #discogs_logo {
