@@ -79,68 +79,47 @@ require_once APP_ROOT . 'partials/retrieve_collection.php';
     <tbody>
 <?php
     foreach ($releases as $release) {
-        $format_field = '';
-        $found_album = false;
-        $found_single = false;
-        echo '<tr><td>';
+        // cache nested values once
+        $basic = $release['basic_information'];
+        $instanceId = $release['instance_id'];
+        $releaseId = $release['id'];
 
-        // Artist
-        echo condense_artists(
-            $release['basic_information']['artists']
-        ) . '</td><td>';
+        // cache output from helper functions
+        $artistHtml = condense_artists($basic['artists']);
+        $titleHtml  = format_title($release);
 
-        // Title
-        echo format_title($release);
-        echo '</td><td>';
+        // build formats fast using array_map + implode
+        $formatNames = array_map(function($f)
+            { return $f['name']; },
+            $basic['formats']);
 
-        // Listing the format is important because some formats should NOT
-        // be washed, such as tapes and most flexidiscs.
-        foreach ($release['basic_information']['formats'] as $format) {
-            $format_field .= $format['name'] . '<br />';
+        $formatField = implode('<br />', $formatNames);
+        if ($formatField !== '') {
+            $formatField .= '<br />';
         }
-        echo $format_field . '</td><td>';
-        echo '<input type="hidden" id="format_' .
-            $release['instance_id'] .
-            '" value="' .
-            $format_field .
-            '" />';
 
-        // Click this button if this item should not be washed.
-        echo '<button class="btn btn-danger" name="na_' .
-            $release['instance_id'] .
-            '" value="na_' .
-                $release['instance_id'] .
-            '_' .
-            $release['id'] .
-            '" onClick="checkConflict(\'na_' .
-            $release['instance_id'] .
-            '_' .
-            $release['id'] .
-            '\');" type="button">NO</button></td><td>';
+        // Build the row string.
+        $row  = '<tr><td>';
+        $row .= $artistHtml . '</td><td>';
+        $row .= $titleHtml . '</td><td>';
+        $row .= $formatField . '</td><td>';
+        $row .= '<input type="hidden" id="format_' . $instanceId . '" value="' . htmlspecialchars($formatField, ENT_QUOTES) . '" />';
+        $row .= '</td><td>';
+        $row .= '<button class="btn btn-danger" name="na_' . $instanceId .
+                '" value="na_' . $instanceId . '_' . $releaseId .
+                '" onClick="checkConflict(\'na_' . $instanceId . '_' . $releaseId .
+                '\');" type="button">NO</button></td><td>';
+        $row .= '<button class="btn btn-warning" name="date_' . $instanceId .
+                '" value="ed_' . $instanceId .
+                '" onClick="checkConflict(\'ed_' . $instanceId . '_' . $releaseId .
+                '\');" type="button">When?</button></td><td>';
+        $row .= '<button class="btn btn-primary" name="today_' . $instanceId .
+                '" value="today_' . $instanceId .
+                '" onClick="checkConflict(\'today_' . $instanceId . '_' . $releaseId .
+                '\');" type="button">today</button>';
+        $row .= '</td></tr>';
 
-        // Click this button if this item needs a date other than today.
-        echo '<button class="btn btn-warning" ' .
-            'name="date_' .
-            $release['instance_id'] .
-            '" value="ed_' .
-            $release['instance_id'] .
-            '" onClick="checkConflict(\'ed_' .
-            $release['instance_id'] .
-            '_' .
-            $release['id'] .
-            '\');" type="button">When?</button></td><td>';
-
-        // Click this button to mark the item as washed on today's date.
-        echo '<button class="btn btn-primary" name="today_' .
-            $release['instance_id'] .
-            '" value="today_' .
-            $release['instance_id'] .
-            '" onClick="checkConflict(\'today_' .
-            $release['instance_id']  .
-            '_' .
-            $release['id'] .
-            '\');" type="button">today</button>';
-        echo '</td></tr>';
+        echo $row;
     }
     echo '</tbody></table></form>';
     require_once APP_ROOT . 'partials/modals.html';
