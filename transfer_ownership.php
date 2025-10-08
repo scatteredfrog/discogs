@@ -49,8 +49,13 @@ if (!isset($_SESSION['count'])) {
 ?>
 
 <div class="container-fluid">
-    <div class="row bg-info fw-bold p-3">
-        Transfer Releases to a Different Owner
+    <div class="row bg-info p-3">
+        <div class="col-11 fw-bold align-self-center">
+            Transfer Releases to a Different Owner
+        </div>
+        <div class="col-1 float-end"><form>
+            <?php echo $home; ?></form>
+        </div>
     </div>
 </div>
 <div class="container p-3">
@@ -68,9 +73,49 @@ if (!isset($_SESSION['count'])) {
             </div>
             <div class="row height42">
                 <div class="col-4">
-                    <button type="button" class="mx-auto btn-sm btn-primary btn float-end" name="submit" id="submit">Search</button>
+                    <button type="button" class="mx-auto btn-sm btn-primary btn float-end" name="search_stuff" id="search_stuff">Search</button>
                 </div>
             </div>
         </div>
     </form>
 </div>
+<hr/>
+<div class="container results">
+</div>
+<script>
+    $(document).ready(function() {
+        // A submit will reload the page. We don't want that.
+        $('form').submit(false);
+
+        $('#search_stuff').on('click', function() {
+            let post_data = {
+                'artist': $('#artist').val(),
+                'title': $('#title').val(),
+            }
+            $.post('post/search.php', post_data, function(response) {
+                let new_html = '';
+                releases = JSON.parse(response);
+                console.log(releases);
+                releases.forEach(function(e) {
+                    new_html += '<div class="row">';
+                    new_html += '<div><img src="' + e.thumb + '"/>';
+                    new_html += '</div>';
+                    new_html += '</div>';
+                });
+                $('.results').html(new_html);
+            });
+        });
+    });
+
+    function releaseLayout(release) {
+        console.log("GOT HERE");
+        let html = '<div class="row">';
+        html += '<div><img src="' + release.thumb + '"/>';
+        html += '</div>';
+        html += '</div>';
+        return html;
+    }
+</script>
+</body>
+</html>
+>>>>>>> Stashed changes
