@@ -8,13 +8,13 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=fff)](https://getbootstrap.com/)
 
 ## Why This Project?
-I'm a fan of vinyl records, and I keep track of my collection, as do many
-collectors, on [Discogs](https://www.discogs.com/). Some prefer to use
-spreadsheets, which is fine, but with Discogs, you get all kinds of features
-that you likely wouldn't get otherwise, such as the date of a particular
-version of a record, where it was pressed, etc. Also, with the Discogs phone
-app, you can always have access to your inventory as long as you have an
-Internet connection.
+I'm a fan of vinyl records (well, not just vinyl, but also styrene and 
+shellac!), and I keep track of my collection, as do many collectors, on
+[Discogs](https://www.discogs.com/). Some prefer to use spreadsheets, which
+is fine, but with Discogs, you get all kinds of features that you likely 
+wouldn't get otherwise, such as the date of a particular version of a record,
+where it was pressed, etc. Also, with the Discogs phone app, you can always
+have access to your inventory as long as you have an Internet connection.
 
 I use Discogs not just to track my collection, but also to make note of when I
 last washed a record. When a record enters my home for the first time, it does
@@ -25,7 +25,7 @@ when I washed a record, but the problem is, I used that field for other things
 as well, making it hard to find which records I hadn't yet washed.
 
 My solution: Discogs allows custom fields -- text and dropdown. I added a text
-custom field speicifcally to record the date the record was washed. But still,
+custom field specifically to enter the date the record was washed. But still,
 that wasn't the greatest solution because none of Discogs' filtering allows
 you to filter by custom fields. The site itself is slow, too, so scrolling
 through my collection to find what records still need washing is a royal PITA.
